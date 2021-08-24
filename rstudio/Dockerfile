@@ -56,7 +56,8 @@ USER root
 
 RUN \
     # download R studio
-    curl --silent -L --fail https://s3.amazonaws.com/rstudio-ide-build/server/bionic/amd64/rstudio-server-1.2.1578-amd64.deb > /tmp/rstudio.deb && \
+    curl --silent -L --fail \
+        https://s3.amazonaws.com/rstudio-ide-build/server/bionic/amd64/rstudio-server-1.2.1578-amd64.deb > /tmp/rstudio.deb && \
     \
     # install R studio
     apt-get update && \
@@ -71,7 +72,8 @@ RUN pip install \
         jupyter-rsession-proxy==1.2.0 && \
     jupyter labextension install @jupyterlab/server-proxy && \
     \
-    pip install jupyterlab-git==0.32.2 \
+    pip install \
+        jupyterlab-git==0.32.2 \
         nbgitpuller==0.10.1 && \
     jupyter serverextension enable --sys-prefix nbgitpuller && \
     jupyter lab build
