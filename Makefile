@@ -4,34 +4,20 @@
 
 # Use bash for inline if-statements in arch_patch target
 SHELL:=bash
-OWNER?=jupyter
+OWNER?=dddlab
 
 # Need to list the images in build dependency order
 
 # Images supporting the following architectures:
 # - linux/amd64
 # - linux/arm64
-MULTI_IMAGES:= \
-	base-notebook \
-	minimal-notebook
+MULTI_IMAGES:=
 # Images that can only be built on the amd64 architecture (aka. x86_64)
 AMD64_ONLY_IMAGES:= \
-	r-notebook \
-	scipy-notebook \
-	tensorflow-notebook \
-	datascience-notebook \
-	pyspark-notebook \
-	all-spark-notebook
+	rstudio
 # All of the images
 ALL_IMAGES:= \
-	base-notebook \
-	minimal-notebook \
-	r-notebook \
-	scipy-notebook \
-	tensorflow-notebook \
-	datascience-notebook \
-	pyspark-notebook \
-	all-spark-notebook
+	rstudio
 
 # Enable BuildKit for Docker build
 export DOCKER_BUILDKIT:=1
