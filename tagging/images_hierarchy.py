@@ -51,6 +51,14 @@ ALL_IMAGES = {
     ),
     "minimal-notebook": ImageDescription(parent_image="base-notebook"),
     "scipy-notebook": ImageDescription(parent_image="minimal-notebook"),
+    "rstudio": ImageDescription(
+        parent_image=None,
+        taggers=[
+            RVersionTagger,
+            JupyterLabVersionTagger
+        ],
+        manifests=[CondaEnvironmentManifest, RPackagesManifest],
+    ),
     "r-notebook": ImageDescription(
         parent_image="minimal-notebook",
         taggers=[RVersionTagger],
